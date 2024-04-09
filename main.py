@@ -7,9 +7,9 @@ current_card = {}
 to_learn = {}
 
 try:
-    data = pandas.read_csv("data/words_to_learn.csv")
+    data = pandas.read_csv("words_to_learn.csv")
 except FileNotFoundError:
-    original_data = pandas.read_csv("data/french_words.csv")
+    original_data = pandas.read_csv("french_words.csv")
     print(original_data)
     to_learn = original_data.to_dict(orient="records")
 else:
@@ -36,7 +36,7 @@ def is_known():
     to_learn.remove(current_card)
     print(len(to_learn))
     data = pandas.DataFrame(to_learn)
-    data.to_csv("data/words_to_learn.csv", index=False)
+    data.to_csv("words_to_learn.csv", index=False)
     next_card()
 
 
